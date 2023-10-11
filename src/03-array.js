@@ -8,10 +8,10 @@
  * const lastElement = getLastElement([2, 4, 6, 8, 10, 12, 14, 16, 18, 20]);
  * console.log(lastElement); // 20
  */
+
 function getLastElement(array) {
-
+  return array[array.length - 1];
 }
-
 
 /**
  * This function returns an array of even numbers from the specified start to finish.
@@ -24,10 +24,18 @@ function getLastElement(array) {
  * const numbers = returnEvenNumbers(2, 20);
  * // numbers will be [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
  */
-function returnEvenNumbers(start, finish) {
 
+function returnEvenNumbers(start, finish) {
+  const evenNumbersArray = [];
+  for (let i = start; i <= finish; i++) {
+    if (i % 2 === 0) {
+      evenNumbersArray.push(i);
+    }
+}
+return evenNumbersArray;
 }
 
+console.log(returnEvenNumbers(2, 20)) // returns [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
 /**
  * This function returns a new array with the square of each number from the input array.
@@ -39,9 +47,14 @@ function returnEvenNumbers(start, finish) {
  * const squares = squareArray([1, 2, 3]); // squares will be [1, 4, 9]
  * const anotherSquares = squareArray([-1, -2, 3]); // anotherSquares will be [1, 4, 9]
  */
-function squareArray(array) {
 
+function squareArray(array) {
+  return array.map(num => num * num)
 }
+const numbers = [1, 2, 3, 4];
+const squaredNumbersArray = squareArray(numbers);
+
+console.log(squaredNumbersArray) // returns [1, 4, 9, 16]
 
 /**
  * This function returns the maximum number in an array.
@@ -53,6 +66,10 @@ function squareArray(array) {
  * const max = findMax([1, 2, 3]); // max will be 3
  * const anotherMax = findMax([-1, -2, 3]); // anotherMax will be 3
  */
-function findMax(array) {
 
+function findMax(array) {
+    return Math.max(...array)
 }
+
+const maxInt = findMax([1, 2, 3])
+console.log(maxInt) // returns 3
